@@ -7,46 +7,34 @@
 	data type int. The shift amount k can range from 0 to w - 1.
 */
 
+// Based on the resolution of this repo https://github.com/Tomilla/CS-APP2e/blob/master/Solution/Chapter%202/S2HP_2.63.c
+
 #include <stdio.h>
 
-void printBits(size_t const size, void const * const ptr)
-{
-	unsigned char* b = (unsigned char*)ptr;
-	unsigned char byte;
-
-	for (int i = size - 1; i >= 0; i--)
-	{
-		for (int j = 7; j >= 0; j--)
-		{
-			byte = (b[i] >> j) & 1;
-			printf("%u", byte);
-		}
-	}
-	puts("");
-}
+#define W sizeof(int) << 3
 
 unsigned srl(unsigned x, int k)
 {
-	printf("Starting srl");
-	printf("\nunsigned x: ");
-	printBits(sizeof(x), &x);
-	printf("\nint k: ");
-	printBits(sizeof(k), &k);
 	/* Perform shift arithmetically */
 	unsigned xsra = (int)x >> k;
 
-	printf("\nxsra: ");
-	printBits(sizeof(xsra), &xsra);
+	unsigned mask = (unsigned)~0 >> k;
+
+	return xsra & mask;
 }
 
 int sra(int x, int k)
 {
 	/* Perform shift logically */
 	int xsrl = (unsigned)x >> k;
+	int sign = x & 1 << (W - 1);
+	int mask = ((1 << k) - 1 << (W - k));
+	(sign) && (xsrl |= mask);
 }
 
 int main()
 {
-	srl(4, 2);
+	srl(0xFFFFFFFF, 0xFFFFFF);
+	sra(0xFFFFFFFF, 0xFFFFFF);
 	return 0;
 }

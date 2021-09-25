@@ -1,6 +1,10 @@
 .vscode
+.vs
 
 #test folder
 vscodetest
 
 *.exe
+*.obj
+
+*.json
