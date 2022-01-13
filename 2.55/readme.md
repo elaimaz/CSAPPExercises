@@ -1,1 +1,1 @@
-All computers that i tested is big endian ordering
+All computers that i tested are big endian ordering
