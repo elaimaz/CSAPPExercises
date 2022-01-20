@@ -3,7 +3,11 @@ Exercise 2.70
 
 ### ***Dificulty***: :star: :star: :star:
 
+---
+
 ### ***Expected time***: ***2h***:hourglass_flowing_sand:
+
+---
 
 ### ***Question***:
 
