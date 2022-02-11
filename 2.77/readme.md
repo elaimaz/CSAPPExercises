@@ -18,5 +18,5 @@ Write code for a function with the following prototype:
 int divide_power2(int x, int k);
 ```
 
-The function should compute $x/2^{k}$ with correct rounding, and it should follow the bit level
+The function should compute x/2<sup>k</sup> with correct rounding, and it should follow the bit level
 integer [coding rules (page 120)](../Utils/CH2Rules.txt).
