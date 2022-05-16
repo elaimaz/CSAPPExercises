@@ -16,9 +16,7 @@ fraction bits. The integer bit is an explicit copy of the implied bit in the IEE
 representation. That is, it equals 1 for normalized values and 0 for denormalized values. Fill
 in the following table giving the approximate values of some "interesting" number in this format:  
   
-                     Extended Precision  
-  
-
+                                    Extended Precision  
 | Description                    |  Value   |  Decimal  |
 |--------------------------------|:--------:| :------:  |
 | Smallest positive denormalized |0 000000000000000 000...001|2<sup>1 - bias - 63</sup>           |
