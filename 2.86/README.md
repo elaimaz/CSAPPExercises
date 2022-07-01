@@ -24,9 +24,13 @@ Consider is a 16-bit floating-point representation based on the IEEE floating-po
 
 | Description                       |   Hex    |     M    |     E    |     V    |
 |-----------------------------------|:--------:|:--------:|:--------:|:--------:|
-| -0                                |          |          |          |  &#9472; |
+| -0                                |8000|<sup>0</sup>&frasl;<sub>256</sub>|-62|&#9472;|
 | Smallest valor > 2                |          |          |          |          |
 | 512                               |          |          |          |  &#9472; |
-| Largest denormalized              |          |          |          |          |
-| -&infin;                          |          |  &#9472; |  &#9472; |  &#9472; |
-|Number with hex representation 3BB0|  &#9472; |          |          |          |
+| Largest denormalized              |00FF|<sup>255</sup>&frasl;<sub>256</sub>|-62|<sup>0</sup>&frasl;<sub>256</sub> * <sup>1</sup>&frasl;<sub>2<sup>62</sup></sub>|
+| -&infin;                          |FF00|  &#9472; |  &#9472; |  &#9472; |
+|Number with hex representation 3BB0|&#9472;|<sup>235</sup>&frasl;<sub>256</sub>|-4|<sup>235</sup>&frasl;<sub>3776</sub>|
+
+
+
+*I am not sure about this answers. I checked other people results and they all are different from mine.
