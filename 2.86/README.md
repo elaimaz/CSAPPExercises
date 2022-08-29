@@ -26,11 +26,7 @@ Consider is a 16-bit floating-point representation based on the IEEE floating-po
 |-----------------------------------|:--------:|:--------:|:--------:|:--------:|
 | -0                                |   8000   |    0     |    -62   | &#9472;  |
 | Smallest valor > 2                |4001|<sup>1025</sup>&frasl;<sub>1024</sub>|1|<sup>1025</sup>&frasl;<sub>512</sub>|
-| 512                               |          |          |          |  &#9472; |
-| Largest denormalized              |00FF|<sup>255</sup>&frasl;<sub>256</sub>|-62|<sup>0</sup>&frasl;<sub>256</sub> * <sup>1</sup>&frasl;<sub>2<sup>62</sup></sub>|
-| -&infin;                          |FF00|  &#9472; |  &#9472; |  &#9472; |
-|Number with hex representation 3BB0|&#9472;|<sup>235</sup>&frasl;<sub>256</sub>|-4|<sup>235</sup>&frasl;<sub>3776</sub>|
-
-
-
-*Ok, now i believe i got it.
+| 512                               |     ?    |    ?     |     ?    |  &#9472; |
+| Largest denormalized              |00FF|<sup>255</sup>&frasl;<sub>256</sub>|-62|2<sup>-62</sup> * <sup>255</sup>&frasl;<sub>256</sub>|
+| -&infin;                          |   FF00   |  &#9472; |  &#9472; |  &#9472; |
+|Number with hex representation 3BB0|&#9472;|<sup>27</sup>&frasl;<sub>16</sub>|-4|2<sup>-4</sup> * <sup>27</sup>&frasl;<sub>16</sub>|
