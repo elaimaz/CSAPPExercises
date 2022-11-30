@@ -1,5 +1,3 @@
-// Solution based on: https://dreamanddead.github.io/CSAPP-3e-Solutions/chapter2/2.94/
-
 #include <stdio.h>
 #include <assert.h>
 
