@@ -3,7 +3,7 @@
 
 typedef unsigned float_bits;
 
-float_bits float_f2i(float_bits f) {
+int float_f2i(float_bits f) {
     unsigned sig = f >> 31;
     unsigned exp = f >> 23 & 0xFF;
     unsigned frac = f & 0x7FFFFF;
@@ -13,25 +13,39 @@ float_bits float_f2i(float_bits f) {
         return 0x80000000;
     }
 
-    // if (exp == 0) {
-    //     // Denormalized
-    //     frac >>= 1;
-    // } else if (exp == 0xFF - 1) {
-    //     // twice to oo
-    //     exp = 0xFF;
-    //     frac = 0;
-    // } else {
-    //     // Normalized
-    //     exp -= 1;
-    // }
+    if (exp == 0) {
+        return 0;
+    } else if ((exp == 0xFF || exp == 0xFE) && frac == 0) {
+        return 0x80000000; 
+    } 
+    
+    int E = exp - 127;
+    if (E < 0) {
+        return 0;
+    }
 
-    // return sig << 31 | exp << 23 | frac;
+    float M = 0;
+    unsigned int mantissaPos = 0;
+    for (int i = 22; i >= 0; i--) {
+        int bit = (frac >> i) & 1;
+        mantissaPos++;
+        
+        if (bit == 1) {
+            M += (float)1 / (1 << mantissaPos);
+        }
+    }
+    M += 1;
+
+    int intValue = M * (2 << (E - 1));
+
+    return sig ? -intValue : intValue;
 }
 
 int main() {
-    // assert(float_f2i(0x40000000) == 0x3F800000);
-    // assert(float_f2i(0x40A00000) == 0x40200000);
-    // assert(float_f2i(0x40200000) == 0x3fA00000);
+    assert(float_f2i(0x42E1999A) == 112);
+    assert(float_f2i(0xC2E1999A) == -112);
+    assert(float_f2i(0x3F000000) == 0);
+    assert(float_f2i(0xBF000000) == 0);
     
     return 0;
 }

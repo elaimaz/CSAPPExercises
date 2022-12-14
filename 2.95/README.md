@@ -17,7 +17,7 @@ Following the bit level floating point coding rules, implement the function with
  * Compute (int)
  * if conversion causes overflow or f is NaN, return 0x80000000  
  */
-float_bits float_f2i(float_bits f);
+int float_f2i(float_bits f);
 ```  
 
 For floating-point number f, this function computes (int) f. Your function should round toward zero. If f cannot be represented as an integer (e.g, it is out of range, or it is *NaN*), then the function should return 0x80000000.  
