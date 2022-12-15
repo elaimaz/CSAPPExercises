@@ -1,44 +1,35 @@
+// Solution based on: https://dreamanddead.github.io/CSAPP-3e-Solutions/chapter2/2.96/
+
 #include <stdio.h>
 #include <assert.h>
 
 typedef unsigned float_bits;
 
 int float_f2i(float_bits f) {
-    unsigned sig = f >> 31;
-    unsigned exp = f >> 23 & 0xFF;
-    unsigned frac = f & 0x7FFFFF;
+  unsigned sig = f >> 31;
+  unsigned exp = f >> 23 & 0xFF;
+  unsigned frac = f & 0x7FFFFF;
+  unsigned bias = 0x7F;
 
-    int is_nam = (exp == 0xFF && frac != 0);
-    if (is_nam) {
-        return 0x80000000;
+  int num;
+  unsigned E;
+  unsigned M;
+
+  if (exp >= 0 && exp < 0 + bias) {
+    num = 0;
+  } else if (exp >= 31 + bias) {
+    num = 0x80000000;
+  } else {
+    E = exp - bias;
+    M = frac | 0x800000;
+    if (E > 23) {
+      num = M << (E - 23);
+    } else {
+      num = M >> (23 - E);
     }
+  }
 
-    if (exp == 0) {
-        return 0;
-    } else if ((exp == 0xFF || exp == 0xFE) && frac == 0) {
-        return 0x80000000; 
-    } 
-    
-    int E = exp - 127;
-    if (E < 0) {
-        return 0;
-    }
-
-    float M = 0;
-    unsigned int mantissaPos = 0;
-    for (int i = 22; i >= 0; i--) {
-        int bit = (frac >> i) & 1;
-        mantissaPos++;
-        
-        if (bit == 1) {
-            M += (float)1 / (1 << mantissaPos);
-        }
-    }
-    M += 1;
-
-    int intValue = M * (2 << (E - 1));
-
-    return sig ? -intValue : intValue;
+  return sig ? -num : num;
 }
 
 int main() {
