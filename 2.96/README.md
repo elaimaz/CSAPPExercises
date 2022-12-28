@@ -1,4 +1,4 @@
-Exercise 2.95
+Exercise 2.96
 ==============
 
 ### ***Dificulty***: :star: :star: :star: :star:
@@ -13,12 +13,9 @@ Exercise 2.95
 Following the bit level floating point coding rules, implement the function with the following prototype:  
 
 ```
-/*  
- * Compute (int) f.
- * if conversion causes overflow or f is NaN, return 0x80000000  
- */
-int float_f2i(float_bits f);
+/* Compute (float) i */
+float_bits float_i2f(int i);
 ```  
 
-For floating-point number f, this function computes (int) f. Your function should round toward zero. If f cannot be represented as an integer (e.g, it is out of range, or it is *NaN*), then the function should return 0x80000000.  
+For argument i, this function computes the bit-level representation of (float) i.  
 &nbsp;&nbsp;&nbsp;&nbsp;Test your function by evaluating it for all 2<sup>32</sup> values of argument f and comparing the result to what would be obtained using your machine's floating-point operations.
