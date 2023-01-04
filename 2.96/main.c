@@ -1,42 +1,68 @@
-// Solution based on: https://dreamanddead.github.io/CSAPP-3e-Solutions/chapter2/2.96/
-
 #include <stdio.h>
 #include <assert.h>
 
 typedef unsigned float_bits;
 
+int leftmost_one(unsigned x)
+{
+	// This will move the bits to the right keeping the most significant
+	x |= x >> 1;
+	x |= x >> 2;
+	x |= x >> 4;
+	x |= x >> 16;
+
+	// Set all bits to 0 except the most significant
+	return x & ~(x >> 1);
+}
+
+unsigned SetHighestBitToZero(unsigned originalValue)
+{
+    unsigned mask = originalValue;
+
+    mask |= mask >> 1;
+    mask |= mask >> 2;
+    mask |= mask >> 4;
+    mask |= mask >> 8;
+    mask |= mask >> 16;
+
+    mask = mask >> 1;
+
+    return originalValue & mask;
+}
+
 float_bits float_i2f(int i) {
-  unsigned sig = i >> 31;
-  unsigned exp = i >> 23 & 0xFF;
-  unsigned frac = i & 0x7FFFFF;
-  unsigned bias = 0x7F;
-
-  int num;
-  unsigned E;
-  unsigned M;
-
-  if (exp >= 0 && exp < 0 + bias) {
-    num = 0;
-  } else if (exp >= 31 + bias) {
-    num = 0x80000000;
-  } else {
-    E = exp - bias;
-    M = frac | 0x800000;
-    if (E > 23) {
-      num = M << (E - 23);
-    } else {
-      num = M >> (23 - E);
+    if (i == 0) {
+        return i;
     }
-  }
 
-  return sig ? -num : num;
+    unsigned sig = i >> 31;
+    if (sig)
+    {
+        i = ~i + 1;
+    }
+
+    unsigned bias = 0x7F;
+    unsigned integer_value = i & 0x7FFFFFFF;
+    unsigned leftmostOne = leftmost_one(integer_value);
+
+    unsigned bitPosValue = 1;
+    char position = 0;
+    while(leftmostOne != bitPosValue) {
+        bitPosValue = bitPosValue << 1;
+        position++;
+    }
+
+    unsigned expValue = bias + position;
+    unsigned fracValue = SetHighestBitToZero(integer_value);
+
+    return sig << 31 | expValue << 23 | fracValue << (23 - position);
 }
 
 int main() {
-    // assert(float_f2i(0x42E1999A) == 112);
-    // assert(float_f2i(0xC2E1999A) == -112);
-    // assert(float_f2i(0x3F000000) == 0);
-    // assert(float_f2i(0xBF000000) == 0);
+    assert(float_i2f(0xA) == 0x41200000);
+    assert(float_i2f(250) == 0x437A0000);
+    assert(float_i2f(-10) == 0xC1200000);
+    assert(float_i2f(0x1) == 0x3F800000);
     
-    return 0;
+  return 0;
 }
