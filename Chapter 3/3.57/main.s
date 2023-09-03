@@ -1,4 +1,5 @@
-;Compile using gcc -c main.c	
+;Compiled using gcc -c -march=1686 -m32 -S main.c
+;I don't think that the compilation worked as it should 	
 	.file	"main.c"
 	.text
 	.globl	cread
@@ -6,23 +7,24 @@
 cread:
 .LFB0:
 	.cfi_startproc
-	endbr64
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	movq	%rdi, -8(%rbp)
-	cmpq	$0, -8(%rbp)
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	call	__x86.get_pc_thunk.ax
+	addl	$_GLOBAL_OFFSET_TABLE_, %eax
+	cmpl	$0, 8(%ebp)
 	je	.L2
-	movq	-8(%rbp), %rax
-	movl	(%rax), %eax
+	movl	8(%ebp), %eax
+	movl	(%eax), %eax
 	jmp	.L4
 .L2:
 	movl	$0, %eax
 .L4:
-	popq	%rbp
-	.cfi_def_cfa 7, 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
 .LFE0:
@@ -32,34 +34,31 @@ cread:
 main:
 .LFB1:
 	.cfi_startproc
-	endbr64
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	call	__x86.get_pc_thunk.ax
+	addl	$_GLOBAL_OFFSET_TABLE_, %eax
 	movl	$0, %eax
-	popq	%rbp
-	.cfi_def_cfa 7, 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
 .LFE1:
 	.size	main, .-main
+	.section	.text.__x86.get_pc_thunk.ax,"axG",@progbits,__x86.get_pc_thunk.ax,comdat
+	.globl	__x86.get_pc_thunk.ax
+	.hidden	__x86.get_pc_thunk.ax
+	.type	__x86.get_pc_thunk.ax, @function
+__x86.get_pc_thunk.ax:
+.LFB2:
+	.cfi_startproc
+	movl	(%esp), %eax
+	ret
+	.cfi_endproc
+.LFE2:
 	.ident	"GCC: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0"
 	.section	.note.GNU-stack,"",@progbits
-	.section	.note.gnu.property,"a"
-	.align 8
-	.long	1f - 0f
-	.long	4f - 1f
-	.long	5
-0:
-	.string	"GNU"
-1:
-	.align 8
-	.long	0xc0000002
-	.long	3f - 2f
-2:
-	.long	0x3
-3:
-	.align 8
-4:
