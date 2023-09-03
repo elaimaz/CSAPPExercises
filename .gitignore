@@ -6,5 +6,6 @@ vscodetest
 
 *.exe
 *.obj
+*.o
 
 *.json
