@@ -14,9 +14,9 @@ The code that follows shows an example of branching on an enumareted type value 
 
 ```
 /* Enumerated type creates set of constants numbered 0 and upward */
-typedef enum (MODE_A, MODE_B, MODE_C, MODE_D, MODE_E) mode_t;
+typedef enum {MODE_A, MODE_B, MODE_C, MODE_D, MODE_E} mode_t;
 
-int switch3(int *pi, int *p2, mode_t action)
+int switch3(int *p1, int *p2, mode_t action)
 {
 	int result = 0;
 	switch (action) {
