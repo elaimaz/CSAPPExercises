@@ -46,7 +46,7 @@ Fill in the body of the switch statement with C code that will have the same beh
 7	804842c:	83 fa 05				cmp		$0x5,%edx
 8	804842f:	77 17					ja		8048448 <switch_prob+0x28>
 9	8048431:	ff 24 95 d0 85 04 08	jmp		*0x80485d0(,%edx,4)
-10	804843b:	c1 e0 02				shl		$0x2,%eax
+10	8048438:	c1 e0 02				shl		$0x2,%eax
 11	804843b:	eb 0e					jmp		804844b <switch_prob+0x2b>
 12	804843d:	c1 f8 02				sar		$0x2,%eax
 13	8048440:	eb 09					jmp		804844b <switch_prob+0x2b>
