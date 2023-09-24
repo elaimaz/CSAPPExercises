@@ -48,4 +48,4 @@ When compiled with optimization level -O2 GCC generates following code for the i
 
 1. 13
 2. i at edi and j at ecx.  
-3. [Code](/main.c)
+3. [Code](./main.c)
