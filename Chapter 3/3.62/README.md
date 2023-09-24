@@ -40,4 +40,12 @@ When compiled with optimization level -O2 GCC generates following code for the i
 
 1. What is the value of M?
 2. What registers hold program values i and j?
-3. Write a C code version of transpose that makes use of the optimization that occur in this loop. Use the parameter M in your code rather than numeric constants.
+3. Write a C code version of transpose that makes use of the optimization that occur in this loop. Use the parameter M in your code rather than numeric constants.  
+
+---
+
+### ***Answer***:  
+
+1. 13
+2. i at edi and j at ecx.  
+3. [Code](/main.c)
