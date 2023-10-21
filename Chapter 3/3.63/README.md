@@ -1,4 +1,4 @@
-Exercise 3.62
+Exercise 3.63
 ==============
 
 ### ***Dificulty***: :star: :star:
@@ -51,4 +51,35 @@ When compiling this program GCC generates the following assembly code:
 23		movl		%edx, %eax
 ```  
 
-Use your reverse engineering skills to determine the definitions of E1 and E2.
+Use your reverse engineering skills to determine the definitions of E1 and E2.  
+
+---  
+
+### ***Draft***:  
+
+```
+	n at %ebp+8, A at %ebp+12, j at %ebp+16
+1		movl		8(%ebp), %eax		;Get n
+2		leal		(%eax,%eax), %edx	;edx = n + n
+3		leal		(%edx,%eax), %ecx	;ecx = (n + n) + n
+4		movl		%edx, %ebx		;ebx = n + n
+5		leal		1(%edx), %eax		;Compute 1 + (n + n)
+6		movl		$0, %edx		;Move 0 to edx (result)
+7		testl		%eax, %eax		;test eax
+8		jle		.L3			;jump if zero
+9		leal		0(,%ecx,4), %esi	;Compute 4 * 3n
+10		movl		16(%ebp), %edx		;Get j
+11		movl		12(%ebp), %ecx		;Get A
+12		leal		(%ecx,%edx,4), %eax	;Compute A + 4j
+13		movl		$0, %edx		;Get 0
+14		movl		$1, %ecx		;Get 1
+15		addl		$2, %ebx		;Add 2 + 2n
+16	.L4
+17		addl		(%eax), %edx	;Add edx += A + 4j
+18		addl		$1, %ecx		;Add ecx += 1
+19		addl		%esi, %eax		;Add (4 * 3n) + (A + 4j)
+20		cmpl		%ebx, %ecx		;Compare ecx and ebx
+21		jne		.L4
+22	.L3
+23		movl		%edx, %eax		;Return result
+```
