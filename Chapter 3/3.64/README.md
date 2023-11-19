@@ -86,4 +86,59 @@ GCC generates the following code for these two functions:
 1. We can see in lines 5-7 of the code for word_sum that it appears as if three values are being retrieved from the stack, even though the function has only a single argument. Describe what these three values are.
 2. We can see in line 4 of the code for prod that 20 bytes are allocated in the stack frame. These get used as five fields of 4 bytes each. Describe how each of these fields gets used.
 3. How would you describe the general strategy for passing structures as arguments to a function?
-3. How would you describe the general strategy for handling a structure as a return value from a function?
+4. How would you describe the general strategy for handling a structure as a return value from a function?  
+
+---
+
+### ***Answear***:  
+1. result, s1.p and s1.a respectively.
+2. They are each a variable from structures str1 and str2 and a return address.  
+3. pass each elements in the structure to the function
+4. passing the address that will hold the return values as the 
+argument to the funciton
+
+---
+
+### ***Draft***: 
+```
+1	word_sum:
+2		pushl		%ebp			;Save old %ebp
+3		movl		%esp, %ebp		;Set %ebp as frame pointer
+4		pushl		%ebx			;Save callee save register %ebx
+5		movl		8(%ebp), %eax	;Get result
+6		movl		12(%ebp), %ebx		;Get *s1.p
+7		movl		16(%ebp), %edx		;Get *s1.a
+8		movl		(%edx), %edx		;%edx = si.a
+9		movl		%ebx, %ecx		;%ecx = *si.p
+10		subl		%edx, %ecx		;s1.a - *s1.p
+11		movl		%ecx, 4(%eax)	;
+12		addl		%ebx, %edx
+13		movl		%edx, (%eax)
+14		popl		%ebx
+15		popl		%ebp
+16		ret		$4
+```  
+
+```
+1	prod:
+2		pushl		%ebp			;Save old %ebp
+3		movl		%esp, %ebp		;Set %ebp as frame pointer
+4		subl		$20, %esp		;Allocate 20 bytes on stack
+5		leal		12(%ebp), %edx		;Get &y
+6		leal		-8(%ebp), %ecx		;
+7		movl		8(%ebp), %eax		;Get x
+8		movl		%eax, 4(%esp)		;Move x to s1.a
+9		movl		%edx, 8(%esp)		;Move &y to s1.p
+10		movl		%ecx, (%esp)
+11		call		word_sum
+12		subl		$4, %esp
+13		movl		-4(%ebp), %eax		;Get s2.sum
+14		imull		-8(%ebp), %eax		;Multiply s2.sum * s2.diff
+15		leave
+16		ret
+```  
+
+---
+
+### ***Notes***:  
+Based on [https://github.com/edwinfj/csapp-2e-solution/blob/master/practice/c3/p3.64](edwinfj solution)
