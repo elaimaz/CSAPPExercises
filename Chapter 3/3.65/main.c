@@ -1,3 +1,6 @@
+#define A 14
+#define B 12
+
 typedef struct
 {
 	short x[A][B]; /* Unknown constants A and B */

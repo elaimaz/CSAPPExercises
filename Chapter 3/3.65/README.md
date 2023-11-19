@@ -47,5 +47,7 @@ GCC generates the following code for the body of setVal:
 ---
 
 ### ***Answear***:  
+B = 12  
+A = 14
 
 
