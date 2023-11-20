@@ -43,15 +43,29 @@ void test(int i, b_struct *bp)
 ```  
 **Disassembled code for problem 3.66**
 
-&nbsp;&nbsp;&nbsp;&nbsp;The declarations of the compile-time constant CRT and the structure a_struct are in a file for which tou do not have the necessary access privilege. Fortunately, you have a copy of the '.o' version of code, which you are able to disassemble with the OBJDUMP program, yielding the disassemble shown in the code above.  
+&nbsp;&nbsp;&nbsp;&nbsp;The declarations of the compile-time constant CNT and the structure a_struct are in a file for which you do not have the necessary access privilege. Fortunately, you have a copy of the '.o' version of code, which you are able to disassemble with the OBJDUMP program, yielding the disassemble shown in the code above.  
 &nbsp;&nbsp;&nbsp;&nbsp;Using your reverse engineering skills deduce the following.  
 
-1. 1. The value of CRT
+1. The value of CNT
 2. A complete declaration of structure a_struct. Assume that the only fields in this structure as idx and x. 
 
 ---
 
 ### ***Answear***:  
+1. 9
+2. 
+```
+	typedef struct {
+		int idx;
+		int x[4];
+	}
+``` 
+
+---
+
+### ***Notes***:  
+
+Based on [https://github.com/edwinfj/csapp-2e-solution/blob/master/practice/c3/p3.66](edwinfj solution)
 
 
 
