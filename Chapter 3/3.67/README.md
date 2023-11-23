@@ -55,7 +55,20 @@ void proc (union ele *up)
 5		subl		(%edx), %eax
 6		movl		%eax, 4(%ecx)
 ```  
-On the basis of this information, fill in the missing expressions in the code for proc **Hint:** Some union references can have ambiguous interpretations. These ambiguities get resolved as you see where the references lead. There is only one answear that does not perform any casting and does not violate any type constraints.
+On the basis of this information, fill in the missing expressions in the code for proc **Hint:** Some union references can have ambiguous interpretations. These ambiguities get resolved as you see where the references lead. There is only one answear that does not perform any casting and does not violate any type constraints.  
+
+---
+
+### ***Answear***:  
+
+1. 
+```
+	e1.p: 0
+	e1.y: 4
+	e2.x; 0
+	e2.next: 4
+```  
+2. 8 bytes
 
 
 
