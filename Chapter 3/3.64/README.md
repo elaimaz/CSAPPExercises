@@ -141,4 +141,4 @@ argument to the funciton
 ---
 
 ### ***Notes***:  
-Based on [https://github.com/edwinfj/csapp-2e-solution/blob/master/practice/c3/p3.64](edwinfj solution)
+Based on [edwinfj solution](https://github.com/edwinfj/csapp-2e-solution/blob/master/practice/c3/p3.64)

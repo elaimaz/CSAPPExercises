@@ -65,7 +65,7 @@ void test(int i, b_struct *bp)
 
 ### ***Notes***:  
 
-Based on [https://github.com/edwinfj/csapp-2e-solution/blob/master/practice/c3/p3.66](edwinfj solution)
+Based on [edwinfj solution](https://github.com/edwinfj/csapp-2e-solution/blob/master/practice/c3/p3.66)
 
 
 
