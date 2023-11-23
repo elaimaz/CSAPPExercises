@@ -17,7 +17,7 @@ union ele {
 	struct {
 		int *p;
 		int y;
-	} el;
+	} e1;
 	struct {
 		int x;
 		union ele *next;
