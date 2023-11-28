@@ -9,6 +9,11 @@ union ele {
 	} e2;
 };
 
+void proc (union ele *up)
+{
+	up->e2.next->e1.y = *(up->e1.p) - up->e2.x;
+}
+
 int main() {
     return 0;
 }

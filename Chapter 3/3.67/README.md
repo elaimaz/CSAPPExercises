@@ -68,7 +68,11 @@ On the basis of this information, fill in the missing expressions in the code fo
 	e2.x; 0
 	e2.next: 4
 ```  
-2. 8 bytes
-
-
-
+2. 8 bytes  
+3.
+```
+void proc (union ele *up)
+{
+	up->e2.next->e1.y = *(up->e1.p) - up->e2.x;
+}
+```  
