@@ -52,4 +52,5 @@ GCC generates the following x86-64 code:
 ---
 
 ### ***Answear***:  
-[Code](./main.c)
+1. [Code](./main.c).
+2. It goes to the last rightmost node in the tree.

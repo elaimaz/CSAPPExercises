@@ -11,3 +11,9 @@ long trace(tree_ptr tp);
 int main() {
     return 0;
 }
+
+long trace(tree_ptr tp) {
+    while (tp->right != 0) {
+        tp = tp->right;
+    }
+}
