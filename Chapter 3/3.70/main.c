@@ -11,3 +11,17 @@ long traverse(tree_ptr tp);
 int main() {
     return 0;
 }
+
+long traverse(tree_ptr tp)
+{
+    long value = -9223372036854775808;
+    if (tp == 0)
+    {
+        return value;
+    }
+    
+
+    value = traverse(tp->left) > value ? traverse(tp->left) : value;
+    return value = traverse(tp->right) > value ? traverse(tp->right) : value;
+  
+}

@@ -48,4 +48,12 @@ GCC generates the following x86-64 code:
 ```  
 
 1. Generate a C version of the function.
-2. Explain in English what this function computes. 
+2. Explain in English what this function computes.  
+
+---  
+
+### ***Answear***:  
+
+1. [Code](./main.c).
+2. It runs throughout the tree and finds the biggest value.
+
