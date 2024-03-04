@@ -24,7 +24,7 @@ movl	REG, (%esp)		Store REG on stack
 
 ### ***Answear***:  
 
-1. Yes, it decrements by 4 and then writes a register value into memory.  
-2. It does not need to change, if REG is referencing %esp old value.
+1. Yes, it decrements by 4 and then writes a register value into memory, unless REG is %esp, then it will not work.  
+2. [main.c](./main.c).
 
 
