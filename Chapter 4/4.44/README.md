@@ -1,4 +1,4 @@
-Exercise 4.43
+Exercise 4.44
 ==============
 
 ### ***Dificulty***: :star:
@@ -23,8 +23,3 @@ addl	$4, %esp		increment stack pointer
 ---  
 
 ### ***Answear***:  
-
-1. Yes, it decrements by 4 and then writes a register value into memory, unless REG is %esp, then it will not work.  
-2. [main.c](./main.c).
-
-
