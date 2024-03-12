@@ -23,3 +23,5 @@ addl	$4, %esp		increment stack pointer
 ---  
 
 ### ***Answear***:  
+1. Yes, it passes the value of the top of the stack to the register and then increments 4, unless REG is esp, then it will not work.
+2. [main.c](./main.c).
