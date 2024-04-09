@@ -35,3 +35,12 @@ void bubble_s(int *data, int count) {
 ---  
 
 ### ***Answear***:  
+
+1. [main.c](./main.c).
+2. [bubble_sort_pointer.yo](./bubble_sort_pointer.yo)  
+
+---  
+
+### ***Notes:***:
+
+I could not run correctly exercise 2 on the simulator. it does not show errors, but the program crashes after one specific mrmoq instruction on the l3 label.

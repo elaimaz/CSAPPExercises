@@ -1,6 +1,5 @@
 // Compiled with: gcc -m32 main.c -o main
 
-#include <stdio.h>
 #include <assert.h>
 
 /* Bubble sort: Array version */

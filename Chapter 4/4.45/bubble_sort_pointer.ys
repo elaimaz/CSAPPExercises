@@ -1,0 +1,152 @@
+# Execution begins at address 0 
+	.pos 0
+	irmovq stack, %rsp  	# Set up stack pointer
+	irmovq stack, %rbp		# Set up base pointer
+	call main		# Execute main program
+	halt			# Terminate program
+
+# Array of 10 elements
+	.align 32
+array:
+	.quad 7
+	.quad 5
+	.quad 7
+	.quad 10
+    .quad 9
+    .quad 7
+    .quad 3
+    .quad 7
+    .quad 8
+    .quad 3
+
+main:
+	pushq %rbp
+	rrmovq %rsp, %rbp
+# bubble_sort_pointer.c:22:     bubble_s_pointer(array, 10);
+	irmovq $10, %rsi
+	irmovq array, %rax
+	rrmovq %rax, %rdi
+	call bubble_s_pointer
+# bubble_sort_pointer.c:24:     return 0;
+	irmovq $0, %rax
+# bubble_sort_pointer.c:25: }
+	popq %rbp
+	ret
+
+
+# void bubble_s_pointer(int *array, int count)
+bubble_s_pointer:
+	pushq %rbp
+	rrmovq %rsp, %rbp
+	rmmovq %rdi, -40(%rbp) #data
+	rmmovq %rsi, -48(%rbp) # count
+# bubble_sort_pointer.c:5:     int* array_end = data + count - 1;
+	mrmovq -48(%rbp), %rax
+	# salq	$3, %rax	#, _2
+	addq %rax, %rax
+	addq %rax, %rax
+	addq %rax, %rax
+# bubble_sort_pointer.c:5:     int* array_end = data + count - 1;
+	# leaq	-4(%rax), %rdx	#, _3
+	mrmovq -8(%rax), %rdx
+# bubble_sort_pointer.c:5:     long* array_end = data + count - 1;
+	mrmovq -40(%rbp), %rax #data
+	addq %rdx, %rax #temp
+	rmmovq %rax, -16(%rbp) # array_end
+# bubble_sort_pointer.c:6:     for (last = count - 1; last > 0; last--) {
+	mrmovq -48(%rbp), %rax #count
+	irmovq $1, %r8 # using %r8 as temp register
+	subq %r8, %rax #temp
+	rmmovq %rax, -24(%rbp) # last
+# bubble_sort_pointer.c:6:     for (last = count - 1; last > 0; last--) {
+	jmp l2
+l5:
+# bubble_sort_pointer.c:8:             if (*(data + 1) < *(data)) {
+	mrmovq -40(%rbp), %rax # data
+	irmovq $8, %r8 # using %r8 as temp register
+	addq %r8, %rax
+# bubble_sort_pointer.c:8:             if (*(data + 1) < *(data)) {
+	mrmovq (%rax), %rdx
+# bubble_sort_pointer.c:8:             if (*(data + 1) < *(data)) {
+	mrmovq -40(%rbp), %rax # data
+	mrmovq (%rax), %rax # *data
+# bubble_sort_pointer.c:8:             if (*(data + 1) < *(data)) {
+	# cmpq	%rax, %rdx	# _6, _5
+	rrmovq %rdx, %r8 # using %r8 as temp register
+	subq %rax, %r8
+	jge l4
+# bubble_sort_pointer.c:9:                 long t = *(data + 1);
+	mrmovq -40(%rbp), %rax # data
+	mrmovq 8(%rax), %rax # MEM[(long int *)data_12 + 8B]
+	rmmovq %rax, -8(%rbp)
+# bubble_sort_pointer.c:10:                 *(data + 1) = *(data);
+	mrmovq -40(%rbp), %rax #data
+	# leaq	8(%rax), %rdx	#, _3
+	mrmovq 8(%rax), %rdx
+# bubble_sort_pointer.c:10:                 *(data + 1) = *(data);
+	mrmovq -40(%rbp), %rax	# data
+	mrmovq (%rax), %rax	# *data
+# bubble_sort_pointer.c:10:                 *(data + 1) = *(data);
+	rmmovq %rax, (%rdx)
+# bubble_sort_pointer.c:11:                 *(data) = t;
+	mrmovq -40(%rbp), %rax	# data
+	mrmovq -8(%rbp), %rdx # t
+	rmmovq %rdx, (%rax) # data
+l4:
+# bubble_sort_pointer.c:13:             data++;
+	irmovq $8, %r8
+	mrmovq -40(%rbp), %r9
+	addq %r8, %r9
+	rmmovq %r9, -40(%rbp) #, data
+l3:
+	nop
+	nop
+# bubble_sort_pointer.c:7:         while(data < array_end) {
+	mrmovq -40(%rbp), %rax # data
+	# cmpq	-16(%rbp), %rax	# array_end, tmp109
+	rrmovq %rax, %r8 # using r8 register as temp
+	mrmovq -16(%rbp), %r9 # array_end, using register r9 as temp
+	subq %r9, %r8
+	jle l5
+# bubble_sort_pointer.c:15:         array_end--;
+	# subq	$8, -16(%rbp)	#, array_end
+	mrmovq -16(%rbp), %r8
+	irmovq $8, %r9
+	subq %r9, %r8
+	rmmovq %r8, -16(%rbp)
+# bubble_sort_pointer.c:16:         data = data - last;
+	mrmovq -24(%rbp), %rax # last
+	# salq	$3, %rax	#, _10
+	addq %rax, %rax
+	addq %rax, %rax
+	addq %rax, %rax
+	# negq	%rax	# _11
+	rrmovq %rax, %r8 # using r8 register as temp 
+	irmovq $0, %rax
+	subq %r8, %rax
+# bubble_sort_pointer.c:16:         data = data - last;
+	mrmovq -40(%rbp), %r8 # using r8 register as temp
+	addq	%rax, %r8	
+	rmmovq %r8, -40(%rbp) # _11, data
+# bubble_sort_pointer.c:6:     for (last = count - 1; last > 0; last--) {
+	mrmovq -24(%rbp), %r8
+	irmovq $1, %r9
+	subq %r9, %r8
+	rmmovq %r8, -24(%rbp)
+l2:
+# bubble_sort_pointer.c:6:     for (last = count - 1; last > 0; last--) {
+	irmovq $0, %r8
+	mrmovq -24(%rbp), %r9
+	subq %r8, %r9
+	jg l3
+# bubble_sort_pointer.c:18: }
+	#nop
+	#nop
+	#popq %rbp
+	#ret
+
+
+
+# Stack starts here and grows to lower addresses
+	.pos 0x200
+stack:
