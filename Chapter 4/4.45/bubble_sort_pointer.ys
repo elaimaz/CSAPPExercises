@@ -148,5 +148,5 @@ l2:
 
 
 # Stack starts here and grows to lower addresses
-	.pos 0x200
+	.pos 0x300
 stack:
