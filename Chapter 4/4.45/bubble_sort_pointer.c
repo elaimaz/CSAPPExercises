@@ -19,7 +19,7 @@ void bubble_s_pointer(long *data, long count) {
 
 int main()
 {
-    bubble_s_pointer(array, 10);
+    bubble_s_pointer(array, (long)10);
 
     return 0;
 }

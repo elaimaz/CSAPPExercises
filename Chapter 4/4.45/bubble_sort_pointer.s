@@ -120,7 +120,7 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp	#,
 	.cfi_def_cfa_register 6
-# bubble_sort_pointer.c:22:     bubble_s_pointer(array, 10);
+# bubble_sort_pointer.c:22:     bubble_s_pointer(array, (long)10);
 	movl	$10, %esi	#,
 	leaq	array(%rip), %rax	#, tmp84
 	movq	%rax, %rdi	# tmp84,
