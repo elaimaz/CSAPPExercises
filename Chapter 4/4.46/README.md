@@ -10,8 +10,11 @@ Exercise 4.46
 ---
 
 ### ***Question***:
-Modify the code you wrote for Problem 4.46 to implement the test and swap in the inner loop of the bubblesort function using conditional moves.
+Modify the code you wrote for [Problem 4.45](../4.45/README.md) to implement the test and swap in the inner loop of the bubblesort function using conditional moves.
 
 ---  
 
 ### ***Answear***:  
+[code](./bubble_sort_pointer_conditional.yo).
+
+obs: i'm returning after a great hiatus, so maybe this is not totally correct.
