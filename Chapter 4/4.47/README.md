@@ -21,3 +21,14 @@ This instruction adds the constant value V to register rB. Describe the computat
 ---  
 
 ### ***Answear***:  
+| Stage | iaddl V, rB |
+| :---: | :---: |
+| Fetch | icode:ifun <-- M1[PC]|
+| Fetch | rA:rB <-- M1[PC + 1]|
+| Fetch | valC <-- M4[PC + 2]|
+| Fetch | valP <-- PC + 6|  
+| Decode | valB <-- R[rB]|
+| Execute | valE <-- valB + valC|
+| Memory | |
+| Write back | R[rB] <-- valE |
+| PC update | PC <-- valP |
