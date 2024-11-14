@@ -17,4 +17,4 @@ The ﬁle seq-full.hcl contains the HCL description for SEQ, along with the decl
 ### ***Answear***:  
 [code](./seq-full.hcl).  
 
-obs: did not work on the simulador.
+obs: did not work on the simulador. PRs and explanations are welcome.
