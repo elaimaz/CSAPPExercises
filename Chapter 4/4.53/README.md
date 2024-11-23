@@ -1,11 +1,11 @@
 Exercise 4.53
 ==============
 
-### ***Dificulty***: :star: :star:
+### ***Dificulty***: :star: :star: :star:
 
 ---
 
-### ***Expected time***: ***20 min*** :hourglass_flowing_sand:
+### ***Expected time***: ***2h*** :hourglass_flowing_sand:
 
 ---
 
