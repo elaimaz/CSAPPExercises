@@ -42,5 +42,9 @@ hazard = (
     # Load forwarding not aplicable when the value is necessary on stage E
     !((D_icode == IRMMOVL || D_icode == IPUSHL) && E_dstM == d_srcA)
 );
-```
+```  
+
+2. [Code](./pipe-lf.hcl)
+
+
 obs: used chatGPT on this one because i spent more than 2h and an hiatus so was kinda hard remember everything.
