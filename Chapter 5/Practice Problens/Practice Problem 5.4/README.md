@@ -85,4 +85,6 @@ We can compare this to the version created with optimization level 1:
 ---  
 
 ### ***Answear***: 
-
+1. In combine3 -O2 %xmm0 is used to store product result and to pass the value to dest. In combine3 -O1 %xmm0 is used to read dest, and after that is used to store the value at dest twice, one in dest %rbp and other in the temp register %r12.  
+2. It will work, even with memory aliasing.
+3. It works because data is in %rax and dest at %r12. %rax is never altered, only %r12 with the product value.
