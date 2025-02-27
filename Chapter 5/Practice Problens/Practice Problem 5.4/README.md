@@ -80,7 +80,7 @@ We can compare this to the version created with optimization level 1:
 
 1. How does the role of register %xmm0 differ in these two loops?
 2. Will the more optimized version faithfully implement the C code of combine3, including when there is memory aliasing between dest and the vector data?
-3. Explain either why this optimization preserves the desired behavior, or give an example where it would produce different results than the less optimized Vcode.
+3. Explain either why this optimization preserves the desired behavior, or give an example where it would produce different results than the less optimized code.
 
 ---  
 
