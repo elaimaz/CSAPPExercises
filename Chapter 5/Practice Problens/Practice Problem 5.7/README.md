@@ -1,4 +1,4 @@
-### ***Practice Problem 5.6***:
+### ***Practice Problem 5.7***:
 Modify the code for combine5 to unroll the loop by a factor k = 5.
 
 ---  
