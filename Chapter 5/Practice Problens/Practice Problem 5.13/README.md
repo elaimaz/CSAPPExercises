@@ -10,7 +10,8 @@ Suppose you work as a truck driver, and you have been hired to carry a load of p
 1. 
 $$
 \begin{align*}
-2500 \text{ km} &= 100\% \\
+2500 \text{ km} &= 100\% \\  
+
 1500 \text{ km} &= \alpha 
 \end{align*}
 $$  
