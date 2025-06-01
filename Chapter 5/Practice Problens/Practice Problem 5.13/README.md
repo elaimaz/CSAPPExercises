@@ -8,13 +8,10 @@ Suppose you work as a truck driver, and you have been hired to carry a load of p
 
 ### ***Answear***:  
 1. 
-$$
-\begin{align*}
-2500 \text{ km} &= 100\% \\  
-
-1500 \text{ km} &= \alpha 
-\end{align*}
-$$  
+<p align="center">
+  2500 km = 100%<br>
+  1500 km = α
+</p>
 
 $$ \frac{150000 \text{km}}{2500\text{km}} = \alpha $$  
 
