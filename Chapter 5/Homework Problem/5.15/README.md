@@ -54,4 +54,18 @@ Our measurements show that this function has a CPE of 3.00 for integer and ﬂoa
 
 ### ***Answear***:  
 1. 
-  - ![Diagramm](./5.15.drawio.svg)
+  - ![Diagram](./5.15.drawio.svg)  
+
+  ---
+
+  - ![Diagram (a)](./Practice%20Problem%205.11(a).svg)  
+
+  ---
+
+  - ![Diagram (b)](./Practice%20Problem%205.11(b).svg)  
+
+  ---  
+
+  2. CPE of 7 (4 for mul and 3 for add).  
+  3. CPE of 5 (3 for mul and 2 for add).  
+  4. modern CPUs use pipelining: while one multiplication is in progress, the next can start, so multiple operations are overlapped.
