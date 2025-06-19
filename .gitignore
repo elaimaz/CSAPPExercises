@@ -11,3 +11,6 @@ vscodetest
 *.json
 
 *.drawio
+
+# binaries
+main
