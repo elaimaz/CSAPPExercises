@@ -19,12 +19,3 @@ In the following, let r be the number of rows in a DRAM array, c the number of c
 | 128 x 8 | 16 | 8 | 4 | 3 | 4 |
 | 512 x 4 | 32 | 16 | 5 | 4 | 5 |
 | 1024 x 4 | 32 | 32 | 5 | 5 | 5 |
-
-
-
-
-512 * 2 - 
-256 * 4
-128 * 8
-64 * 16
-32 * 32
