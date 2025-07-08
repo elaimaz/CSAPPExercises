@@ -5,10 +5,10 @@ What is the capacity of a disk with two platters, 10,000 cylinders, an average o
 
 ### ***Answear***:  
 
-Disk capacity = $$ \frac{bytes}{sector} * \frac{average sectors}{track} * \frac{tracks}{surface} * \frac{surfaces}{platter} * \frac{platters}{disk} $$  
+$$ \text{Disk capacity} = \frac{\text{bytes}}{\text{sector}} * \frac{\text{average sectors}}{\text{track}} * \frac{\text{tracks}}{\text{surface}} * \frac{\text{surfaces}}{\text{platter}} * \frac{\text{platters}}{\text{disk}} $$  
 
-Disk capacity = $$ \frac{512 bytes}{sector} * \frac{400 sectors}{track} * \frac{10000 tracks}{surface} * \frac{2 surfaces}{platter} * \frac{2 platters}{disk} $$  
+$$ \text{Disk capacity} = \frac{512 \text{bytes}}{\text{sector}} * \frac{400 \text{sectors}}{\text{track}} * \frac{10000 \text{tracks}}{\text{surface}} * \frac{2 \text{surfaces}}{\text{platter}} * \frac{2 \text{platters}}{\text{disk}} $$  
 
-Disk capacity = $$ 8192000000 bytes $$  
+$$ \text{Disk capacity} = 8192000000 \text{bytes} $$  
 
-Disk capacity = $$  8.192 GB bytes $$
+$$ \text{Disk capacity} = 8.192 \text{GB} $$
