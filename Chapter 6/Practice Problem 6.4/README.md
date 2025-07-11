@@ -22,7 +22,7 @@ Estimate the average time (in ms) to access a sector on the following disk:
 
 $$ T_\text{avg rotation} = \frac{1}{2} * T_\text{max rotation} $$  
 
-$$ T_\text{avg rotation} = \frac{1}{2} * \frac{1}{\text{RPM}} * \frac{1}{\text{Average \texttt{\#} sectors/track}} * \frac{60 \text{ secs}}{1 \text{ min}} $$
+$$ T_\text{avg rotation} = \frac{1}{2} * \frac{1}{\text{RPM}} * \frac{1}{\text{Average \#\ sectors/track}} * \frac{60 \text{ secs}}{1 \text{ min}} $$
 
 $$ T_\text{avg rotation} = \frac{1}{2} * \frac{1}{10000} * \frac{60 \text{ secs}}{1 \text{ min}} $$
 
