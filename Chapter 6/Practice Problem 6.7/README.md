@@ -4,7 +4,7 @@ Using the data from the years 2000 to 2010 in Figure 6.17(c), estimate the year 
 ---  
 
 ### ***Answear***:  
-$$ 500\text{\$} * x = 10^{15}\text{ Bytes} $$  
+$$ 500\$ * x = 10^{15}\text{ Bytes} $$  
 
 $$ x = \frac{10^{15}\text{ Bytes}}{500\text{\$}} $$  
 
