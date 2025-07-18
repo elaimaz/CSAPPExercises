@@ -1,4 +1,4 @@
-### ***Practice Problem 6.5***:  
+### ***Practice Problem 6.6***:  
 As we have seen, a potential drawback of SSDs is that the underlying ﬂash memory can wear out. For example, one major manufacturer guarantees 1 petabyte (10<sup>15</sup> bytes) of random writes for their SSDs before they wear out. Given this assumption, estimate the lifetime (in years) of the SSD in Figure 6.16 for the following workloads:  
 
 1. Worst case for sequential writes: The SSD is written to continuously at a rate of 170 MB/s (the average sequential write throughput of the device).  
