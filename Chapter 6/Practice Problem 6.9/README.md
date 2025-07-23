@@ -73,6 +73,6 @@ The three functions in Figure 6.22 perform the same operation with varying degre
 
 ### ***Answear***:  
 
-1. (a)  Best, because there is no jumps in memory.
-2. (b)  Mid, every iteration there is 3 positions to jump forward or backwards.
-3. (c)  Worst, the jumps in memory will be greater in this version.
+1. (b)  Best, because there is no jumps in memory.
+2. (c)  Mid, every iteration there is 3 positions to jump forward or backwards.
+3. (d)  Worst, the jumps in memory will be greater in this version.
