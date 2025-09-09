@@ -30,7 +30,7 @@ $$ 512\text{ reads.} $$
 
 2.  
 
-$$ \frac{512\text{ reads} * 2\text{ (x and y)}}{4\text{ data chache}}  $$
+$$ \frac{512\text{ reads} * 2\text{ (Because we are iterating though lines not columns)}}{4\text{ data chache}}  $$
 
 $$ 256\text{ misses.} $$
 
