@@ -1,5 +1,5 @@
 ### ***Practice Problem 6.4***:  
-Estimate the average time (in ms) to access a sector on the following disk:  
+Suppose that a 1 MB ﬁle consisting of 512-byte logical blocks is stored on a disk drive with the following characteristics:  
 
 
 | Parameter  | Value |
@@ -20,7 +20,7 @@ Estimate the average time (in ms) to access a sector on the following disk:
 ### ***Answear***:  
 1.
 
-$$ T_\text{avg rotation} = \frac{1}{2} * T_\text{max rotation} $$  
+$$ T_\text{avg rotation} = \frac{1}{2} * T_\text{max rotation} $$
 
 $$ T_\text{avg rotation} = \frac{1}{2} * \frac{1}{\text{RPM}} * \frac{1}{\text{Average ＃ sectors/track}} * \frac{60 \text{ secs}}{1 \text{ min}} $$
 
@@ -28,34 +28,34 @@ $$ T_\text{avg rotation} = \frac{1}{2} * \frac{1}{10000} * \frac{60 \text{ secs}
 
 $$ T_\text{avg rotation} =  0.003\text{ s} $$
 
-$$ T_\text{avg rotation} =  3\text{ ms} $$  
+$$ T_\text{avg rotation} =  3\text{ ms} $$
 
 ---  
 
-$$ T_\text{max rotation} =  \frac{1}{10000\text{ RPM}} * \frac{60 \text{ secs}}{1 \text{ min}} $$  
+$$ T_\text{max rotation} =  \frac{1}{10000\text{ RPM}} * \frac{60 \text{ secs}}{1 \text{ min}} $$
 
-$$ T_\text{max rotation} =  0.006\text{ secs} $$  
+$$ T_\text{max rotation} =  0.006\text{ secs} $$
 
 $$ T_\text{max rotation} =  6\text{ ms} $$
 
 ---  
 
-$$ T_\text{avg seek} + T_\text{avg rotation} + 2 * T_\text{max rotation} $$  
+$$ T_\text{avg seek} + T_\text{avg rotation} + 2 * T_\text{max rotation} $$
 
-$$ 5\text{ ms} + 3\text{ ms} + 2 * 6\text{ ms} $$  
+$$ 5\text{ ms} + 3\text{ ms} + 2 * 6\text{ ms} $$
 
-$$ 5\text{ ms} + 3\text{ ms} + 2 * 6\text{ ms} $$  
+$$ 5\text{ ms} + 3\text{ ms} + 2 * 6\text{ ms} $$
 
-$$ 20\text{ ms} $$  
+$$ 20\text{ ms} $$
 
 ---  
 
 2. 
 
-$$ (T_\text{avg seek} + T_\text{avg rotation}) * 2000 $$  
+$$ (T_\text{avg seek} + T_\text{avg rotation}) * 2000 $$
 
-$$ (5\text{ ms} + 3\text{ ms}) * 2000 $$  
+$$ (5\text{ ms} + 3\text{ ms}) * 2000 $$
 
-$$ 16000\text{ ms} $$  
+$$ 16000\text{ ms} $$
 
 $$ 16\text{ secs} $$
