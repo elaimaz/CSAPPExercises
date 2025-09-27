@@ -10,7 +10,7 @@ Exercise 6.28
 ---
 
 ### ***Question***:
-This problem concerns the cache in Problem 6.13.  
+This problem concerns the cache in [Problem 6.13](../../Practice%20Problems/Practice%20Problem%206.13/README.md).  
 
 1. List all of the hex memory addresses that will hit in set 1.  
 
