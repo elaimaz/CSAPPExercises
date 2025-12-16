@@ -66,4 +66,4 @@ $$ \text{Number of Sets (S)} = 16 $$
 
 The miss rate will be 25%, because we will have 16 sets, and each 12 bytes we will have a miss. so we will have 64 misses in a range of 256 integers.  
 
-4. No, in this particular case we still will have the first miss-rate of the object access. A greater blocks tho would change the miss-rate.  
+4. No, in this particular case we still will have the first miss-rate of the object access. A greater cache blocks tho would change the miss-rate.  
