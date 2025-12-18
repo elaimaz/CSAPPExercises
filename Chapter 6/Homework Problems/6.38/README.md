@@ -24,7 +24,46 @@ Fill in the table for the approximate cache miss rate for the two cases N = 64 a
 | :------: | :----: | :----: |
 | sumA     |        |        |
 | sumB     |        |        |
-| sumC     |        |        |
+| sumC     |        |        |  
+
+
+```C
+1   typedef int array_t[N][N];
+2
+3   int sumA(array_t a)
+4   {
+5       int i, j;
+6       int sum = 0;
+7       for (i = 0; i < N; i++)
+8           for (j = 0; j < N; j++) {
+9               sum += a[i][j];
+10          }
+11      return sum;
+12  }
+13
+14  int sumB(array_t a)
+15  {
+16      int i, j;
+17      int sum = 0;
+18      for (j = 0; j < N; j++)
+19          for (i = 0; i < N; i++) {
+20              sum += a[i][j];
+21          }
+22      return sum;
+23  }
+24
+25  int sumC(array_t a)
+26  {
+27      int i, j;
+28      int sum = 0;
+29      for (j = 0; j < N; j+=2)
+30          for (i = 0; i < N; i+=2) {
+31              sum += (a[i][j] + a[i+1][j] + a[i][j+1] + a[i+1][j+1]);
+32          }
+33      return sum;
+34  }
+```
+Figure 6.49 **Functions referenced in Problem 6.38.**
 
 
 ---  
@@ -42,7 +81,7 @@ Fill in the table for the approximate cache miss rate for the two cases N = 64 a
 
 $$ \text{Integers per block} = \frac{\text{Block size}}{\text{sizeof(int)}} $$
 $$ \text{Integers per block} = \frac{16\text{ Bytes}}{4\text{ Bytes}} $$
-$$ \text{Integers per block} = 4\text{ Bytes} $$
+$$ \text{Integers per block} = 4 $$
 
 ---
 
