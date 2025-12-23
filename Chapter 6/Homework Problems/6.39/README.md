@@ -56,7 +56,6 @@ Determine the cache performance of the following code:
 $$ 16 * 16 * 4 $$
 $$ 1024\text{ Writes} $$
 
-2. 
 $$ \text{Integers per block} = \frac{\text{Block size}}{\text{sizeof(int)}} $$
 $$ \text{Integers per block} = \frac{32\text{ Bytes}}{4\text{ Bytes}} $$
 $$ \text{Integers per block} = 8 $$
@@ -69,6 +68,7 @@ $$ \text{S} = 64 $$
 
 ---
 
+2. 
 each index of square will have 16 bytes. So at each iteration we will write 2 index of square in the cache.  
 So we can take that we will have a miss in 50% of iterations
 
@@ -78,6 +78,7 @@ $$ 128\text{ Misses} $$
 
 ---  
 
+3. 
 $$ \text{Miss rate} = \frac{128\text{ Misses}}{1024\text{ Misses}} * 100 $$
 $$ \text{Miss rate} = 0.125 * 100 $$
 $$ \text{Miss rate} = 12.5 $$
