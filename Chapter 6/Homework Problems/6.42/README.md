@@ -49,4 +49,4 @@ What percentage of writes in the following code will miss in the cache?
 ---  
 
 ### ***Answear***:  
-Since the cache has a 4-byte lines size, it fit the entirely pixel struct. The first iteration always will be a miss ```buffer[i][j].r = 0;``` but the other will be a hit. So the miss rate is 1/4, or 25%.
+Since the cache has a 4-byte lines size, it fit the entirely pixel struct. The first iteration always will be a miss ```buffer[i][j].r = 0;``` but the other will be a hit. So the miss rate is 1/4, or 25%. [Simulation code](main.c)

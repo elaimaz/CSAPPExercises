@@ -18,12 +18,14 @@ typedef struct  {
     char a;
 } pixel;
 
-pixel buffer[480][640];
+pixel buffer[WIDTH][HEIGHT];
 
 unsigned int misses = 0;
 
-void isInCache(int line, int column) {
-    int address = (line * WIDTH + column) * sizeof(pixel);
+void isInCache(char** addr) {
+    //printf("Address: %p\n", addr);
+    unsigned long address = (unsigned long)*addr;
+    //printf("Address as int: %lu\n", address);
     int block_address = address / CACHE_BLOCK_SIZE;
     int setIndex = block_address % NUMBER_OF_SETS;
 
@@ -35,23 +37,13 @@ void isInCache(int line, int column) {
 
 
 int main() {
-    int i, j;
-
-    for (j = 0; j < 640; j++) {
-       for (i = 0; i < 480; i++) {
-            buffer[i][j].r = 0;
-            isInCache(i, j);
-
-            buffer[i][j].g = 0;
-            isInCache(i, j);
-           
-            buffer[i][j].b = 0;
-            isInCache(i, j);
-           
-            buffer[i][j].a = 0;
-            isInCache(i, j);
-       }
-   }
+    char *cptr = (char *) buffer;
+    for (; cptr < (((char *) buffer) + 640 * 480 * 4); cptr++) {
+        *cptr = 0;
+        //printf("%d\n", *cptr);
+        //printf("%p\n", &cptr);
+        isInCache(&cptr);
+    }
 
     unsigned int reads = WIDTH * HEIGHT * 4;
 
