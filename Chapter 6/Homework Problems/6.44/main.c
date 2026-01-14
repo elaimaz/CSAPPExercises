@@ -20,9 +20,8 @@ typedef struct {
 
 pixel buffer[HEIGHT][WIDTH];
 
-void isInCache(char** addr) {
-    uintptr_t address = (uintptr_t)*addr;  // Use uintptr_t for pointer arithmetic
-    unsigned long block_address = address / CACHE_BLOCK_SIZE;
+void isInCache(uintptr_t address) {
+    uintptr_t block_address = address / CACHE_BLOCK_SIZE;
     unsigned long setIndex = block_address % NUMBER_OF_SETS;
 
     if (cache[setIndex] != block_address) {
@@ -32,13 +31,13 @@ void isInCache(char** addr) {
 }
 
 int main() {    
-    char *cptr = (char *)buffer;
-    for (; cptr < (((char *) buffer) + 640 * 480 * 4); cptr++) {
-        *cptr = 0;
-        isInCache(&cptr);
+    int *iptr = (int *)buffer;
+    for (; iptr < ((int *)buffer + 640*480); iptr++) {
+       *iptr = 0;
+        isInCache((uintptr_t)iptr);
     }
 
-    unsigned int reads = WIDTH * HEIGHT * 4;
+    unsigned int reads = WIDTH * HEIGHT;
     printf("Reads: %d\n", reads);
     printf("Misses: %d\n", misses);
     printf("Hit: %d\n", reads - misses);
