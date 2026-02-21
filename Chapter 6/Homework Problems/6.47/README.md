@@ -6,7 +6,6 @@ Exercise 6.47
 ---
 
 ### ***Expected time***: ***10h*** :hourglass_flowing_sand:
-Spend 6h
 
 ---
 
