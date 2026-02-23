@@ -19,4 +19,4 @@ This problem concerns the swap.o module from Figure 7.1(b). For each symbol that
 | bufp0  |         YES           |   GLOBAL    |     swap.o           | .data   |
 | bufp1  |         YES           |   GLOBAL    |     swap.o           | .bss    |
 | swap   |         YES           |   GLOBAL    |     swap.o           | .text   |
-| temp   |         NO            |     —       |        —             |   —      |
+| temp   |         NO            |     —       |        —             |   —     |
