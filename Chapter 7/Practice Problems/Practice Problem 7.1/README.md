@@ -15,8 +15,8 @@ This problem concerns the swap.o module from Figure 7.1(b). For each symbol that
 
 | Symbol | swap.o .symtab entry? | Symbol type | Module where defined | Section |
 |--------|-----------------------|-------------|----------------------|---------|
-| buf    |         YES           |   EXTERN    |     main.o           | .data   |
-| bufp0  |         YES           |   GLOBAL    |     swap.o           | .data   |
-| bufp1  |         YES           |   GLOBAL    |     swap.o           | .bss    |
-| swap   |         YES           |   GLOBAL    |     swap.o           | .text   |
+| buf    |         YES           |   extern    |     main.o           | .data   |
+| bufp0  |         YES           |   global    |     swap.o           | .data   |
+| bufp1  |         YES           |   global    |     swap.o           | .bss    |
+| swap   |         YES           |   global    |     swap.o           | .text   |
 | temp   |         NO            |     —       |        —             |   —     |
