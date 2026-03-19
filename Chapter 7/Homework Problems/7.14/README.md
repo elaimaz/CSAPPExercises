@@ -1,4 +1,4 @@
-Exercise 7.13
+Exercise 7.14
 ==============
 
 ### ***Dificulty***: :star: :star: :star:  
@@ -25,4 +25,9 @@ symbol name: __x86.get_pc_thunk.ax
 
 section offset: 0x9
 relocation type: R_386_GOTPC
-symbol name: _GLOBAL_OFFSET_TABLE_
+symbol name: _GLOBAL_OFFSET_TABLE_  
+
+obs: you can ge the information by runing: 
+```bash
+readelf -r relo3.o
+```
