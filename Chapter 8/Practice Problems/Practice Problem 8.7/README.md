@@ -1,4 +1,4 @@
-### ***Practice Problem 8.6***:  
+### ***Practice Problem 8.7***:  
 Write a program, called snooze, that takes a single command line argument, calls the snooze function from Problem 8.5 with this argument, and then terminates. Write your program so that the user can interrupt the snooze function by typing ctrl-c at the keyboard. For example:  
 
 ```bash
