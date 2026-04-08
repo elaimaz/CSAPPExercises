@@ -1,4 +1,4 @@
-Exercise 8.11
+Exercise 8.12
 ==============
 
 ### ***Dificulty***: :star:  
@@ -15,18 +15,23 @@ How many “hello” output lines does this program print?
 ```C
 1   #include "csapp.h"
 2
-3   int main()
+3   void doit()
 4   {
-5       int i;
-6
-7       for (i = 0; i < 2; i++)
-8           Fork();
-9       printf("hello\n");
-10      exit(0);
-11  }
-```
+5       Fork();
+6       Fork();
+7       printf("hello\n");
+8       return;
+9   }
+10
+11  int main()
+12  {
+13      doit();
+14      printf("hello\n");
+15      exit(0);
+16  }
+```  
 
 ---  
 
 ### ***Answear***:  
-4
+8
