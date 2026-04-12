@@ -21,3 +21,4 @@ The mysystem function executes command by calling “/bin/sh -c command”, and 
 ---  
 
 ### ***Answear***:  
+[mysystem](./mysystem.c)
