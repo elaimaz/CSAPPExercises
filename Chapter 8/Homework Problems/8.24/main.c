@@ -8,8 +8,10 @@ int main()
 
     /* Parent creates N children */
     for (i = 0; i < N; i++)
-        if ((pid = Fork()) == 0)
-            kill(getpid(), SIGKILL);
+        if ((pid = Fork()) == 0) {
+            int *p = NULL;
+            *p = 0; /* causes segmentation fault */
+        }
 
     /* Parent reaps N children in no particular order */
     while ((pid = waitpid(-1, &status, 0)) > 0) {
@@ -18,8 +20,8 @@ int main()
         else {
             char buffer[64];
             snprintf(buffer, sizeof(buffer), "Child %d terminated by signal: %d",
-                   pid, WEXITSTATUS(status));
-            psignal(WEXITSTATUS(status), buffer);
+                   pid, WTERMSIG(status));
+            psignal(WTERMSIG(status), buffer);
         }
     }
 
