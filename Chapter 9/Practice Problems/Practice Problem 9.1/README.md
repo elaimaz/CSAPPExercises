@@ -1,6 +1,6 @@
-### ***Practice Problem 8.1***:  
+### ***Practice Problem 9.1***:  
 Complete the following table, ﬁlling in the missing entries and replacing each question mark with the appropriate integer. Use the following units: K = 2<sup>10</sup> (Kilo), M = 2<sup>20</sup> (Mega), G = 2<sup>30</sup> (Giga), T = 2<sup>40</sup> (Tera), P = 2<sup>50</sup> (Peta), or E = 2<sup>60</sup>
- (Exa).
+ (Exa).  
 
 | No. virtual address bits (n) | No. virtual addresses (N) | Largest possible virtual address |
 |:----------------------------:|:-------------------------:|:--------------------------------:|
