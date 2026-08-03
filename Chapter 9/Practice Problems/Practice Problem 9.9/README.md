@@ -1,4 +1,4 @@
-### ***Practice Problem 9.8***:  
+### ***Practice Problem 9.9***:  
 Implement a place function for the example allocator.  
 
 ```C
