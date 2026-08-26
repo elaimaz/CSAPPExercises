@@ -27,7 +27,8 @@
 #define PREV_BLKP(bp) ((char *)(bp) - GET_SIZE(((char *)(bp) - DSIZE)))
 
 /* Global variables */
-static char *heap_listp = 0;  /* Pointer to first block */  
+static char *heap_listp = 0;  /* Pointer to first block */
+static void *last_fit_bp = NULL;  /* Pointer to the last fit block allocated */
 
 int mm_init(void)
 {
@@ -39,6 +40,8 @@ int mm_init(void)
     PUT(heap_listp + (2*WSIZE), PACK(DSIZE, 1));    /* Prologue footer */
     PUT(heap_listp + (3*WSIZE), PACK(0, 1));        /* Epilogue header */
     heap_listp += (2*WSIZE);
+
+    last_fit_bp = NULL;  /* Initialize last fit pointer */
 
     /* Extend the empty heap with a free block of CHUNKSIZE bytes */
     if (extend_heap(CHUNKSIZE/WSIZE) == NULL)
@@ -72,6 +75,8 @@ void mm_free(void *bp)
     PUT(HDRP(bp), PACK(size, 0));
     PUT(FTRP(bp), PACK(size, 0));
     coalesce(bp);
+
+    last_fit_bp = NULL;  /* Reset last fit pointer */
 }
 
 static void *coalesce(void *bp)
@@ -147,6 +152,32 @@ static void *find_fit(size_t asize)
         }
     }
     return NULL; /* No fit */
+}
+
+static void *next_fit(size_t asize)
+{
+    if (last_fit_bp == NULL) {
+        last_fit_bp = find_fit(asize);
+        return last_fit_bp;
+    }
+
+    for (void *bp = last_fit_bp; GET_SIZE(HDRP(bp)) > 0; bp = NEXT_BLKP(bp)) {
+        if (!GET_ALLOC(HDRP(bp)) && (asize <= GET_SIZE(HDRP(bp)))) {
+            last_fit_bp = bp;
+            return bp;
+        }
+    }
+
+    // If we reach the end of the heap, wrap around and search from the beginning
+    for (void *bp = heap_listp; bp != last_fit_bp; bp = NEXT_BLKP(bp)) {
+        if (!GET_ALLOC(HDRP(bp)) && (asize <= GET_SIZE(HDRP(bp)))) {
+            last_fit_bp = bp;
+            return bp;
+
+        }
+    }
+
+    return NULL; /* No fit found */    
 }
 
 /// @brief This function places a block of asize bytes at the start of the free block bp, if there any spare bytes we split the block into two.
