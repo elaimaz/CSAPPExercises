@@ -8,7 +8,9 @@
 #define MAX(x, y) ((x) > (y)? (x) : (y))
 
 /* Pack a size and allocated bit into a word */
-#define PACK(size, alloc) ((size) | (alloc))
+// #define PACK(size, alloc) ((size) | (alloc))
+// exercise 9.18
+#define PACK(size, alloc) ((size) | ((prev) << 1) | (alloc))
 
 /* Read and write a word at address p */
 #define GET(p) ((unsigned int)(p))
@@ -17,6 +19,8 @@
 /* Read the size and allocated fields from address p */
 #define GET_SIZE(p) (GET(p) & ~0x7)
 #define GET_ALLOC(p) (GET(p) & 0x1)
+
+#define GET_PREV_ALLOC(p) ((GET(p) & 0x2) >> 1)
 
 /* Given block ptr bp, compute address of its header and footer */
 #define HDRP(bp)    ((char *)(bp) - WSIZE)
@@ -76,12 +80,16 @@ void mm_free(void *bp)
     PUT(FTRP(bp), PACK(size, 0));
     coalesce(bp);
 
-    last_fit_bp = NULL;  /* Reset last fit pointer */
+    if (last_fit_bp == bp) {
+        last_fit_bp = NULL;  /* Reset last fit pointer if it points to the freed block */
+    }
 }
 
 static void *coalesce(void *bp)
 {
-    size_t prev_alloc = GET_ALLOC(FTRP(PREV_BLKP(bp)));
+    // size_t prev_alloc = GET_ALLOC(FTRP(PREV_BLKP(bp)));
+    // exercise 9.18
+    size_t prev_alloc = GET_PREV_ALLOC(HDRP(bp)); // don't touch previous block footer
     size_t next_alloc = GET_ALLOC(HDRP(NEXT_BLKP(bp)));
     size_t size = GET_SIZE(HDRP(bp));
 
@@ -125,7 +133,9 @@ void *mm_malloc(size_t size)
     if (size <= DSIZE)
         asize = 2*DSIZE;
     else
-        asize = DSIZE * ((size + (DSIZE) + (DSIZE-1)) / DSIZE);
+        // asize = DSIZE * ((size + (DSIZE) + (DSIZE-1)) / DSIZE);
+        // exercise 9.18
+        asize = MAX(DSIZE, DSIZE * ((size + WSIZE + (DSIZE-1)) / DSIZE));
     
     /* Search the free list for a fit */
     if ((bp = find_fit(asize)) != NULL) {
@@ -190,7 +200,7 @@ static void place(void *bp, size_t asize)
     if ((csize - asize) >= (2 * DSIZE)) { // We check if the remaining size is enough to create a new free block
         /* Allocate the first part */
         PUT(HDRP(bp), PACK(asize, 1));
-        PUT(FTRP(bp), PACK(asize, 1));
+        // PUT(FTRP(bp), PACK(asize, 1));
 
         /* Create the remaining free block */
         bp = NEXT_BLKP(bp);
@@ -199,6 +209,6 @@ static void place(void *bp, size_t asize)
     } else {
         /* Allocate the entire block */
         PUT(HDRP(bp), PACK(csize, 1));
-        PUT(FTRP(bp), PACK(csize, 1));
+        //PUT(FTRP(bp), PACK(csize, 1));
     }
 }
