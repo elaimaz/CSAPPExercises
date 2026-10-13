@@ -1,4 +1,4 @@
-### ***Practice Problem 10.2***:  
+### ***Practice Problem 10.3***:  
 As before, suppose the disk ﬁle foobar.txt consists of the six ASCII characters “foobar”. Then what is the output of the following program?  
 
 ```C
