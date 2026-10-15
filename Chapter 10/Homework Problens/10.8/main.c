@@ -6,7 +6,7 @@ int main (int argc, char **argv)
     struct stat stat;
     char *type, *readok;
 
-    int fd = open(argv[1], O_RDONLY, 0);
+    int fd = atoi(argv[1]);
     
     fstat(fd, &stat);
     if (S_ISREG(stat.st_mode)) /* Determine file type */

@@ -15,3 +15,4 @@ Write a version of the statcheck program in Figure 10.10, called fstatcheck, tha
 ---  
 
 ### ***Answear***:    
+[code](./main.c).  
