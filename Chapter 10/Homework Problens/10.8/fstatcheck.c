@@ -6,9 +6,14 @@ int main (int argc, char **argv)
     struct stat stat;
     char *type, *readok;
 
-    int fd = atoi(argv[1]);
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <descriptor#>\n", argv[0]);
+        exit(0);
+    }
+
+    int fd = strtol(argv[1], NULL, 10);
     
-    fstat(fd, &stat);
+    Fstat(fd, &stat);
     if (S_ISREG(stat.st_mode)) /* Determine file type */
         type = "regular";
     else if (S_ISDIR(stat.st_mode))
