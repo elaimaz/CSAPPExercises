@@ -1,4 +1,4 @@
-### ***Practice Problem 11.2***:  
+### ***Practice Problem 11.3***:  
 Write a program dd2hex.c that converts its dotted-decimal argument to a hex number and prints the result. For example,  
 
 ```shell
